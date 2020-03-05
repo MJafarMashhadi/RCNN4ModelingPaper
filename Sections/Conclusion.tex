@@ -1,0 +1,18 @@
+\section{Related Work}
+% Go paper by paper
+. Change point detection using pyramid deep learning model \cite{Ebrahimzadeh2019}\\
+. Haidar Khan \cite{Khan2019thesis} Seizure prediction \cite{khan2017focal} -> Section 6.2 has a really good background/related work summary for change point detection \cite{khan2019deep}  \\
+. Time series segmentation through automatic feature learning \cite{Lee2018TimeSeriesSegmentation}\\
+
+
+\section{Limitations and Future Work}
+This approach might miss an input-output invariant correlation. It can happen when the input remains constant or it changes too little to reveal its relation with certain outputs. As mentioned in \ref{changes_in_inputs}, this approach relies on changes in signals.
+
+We assume that during the data collection sampling happens in regular intervals; our approach probably will have a hard time achieving high performances processing unevenly spaced time series data.
+
+In this study we saved time and resources by treating a system that we had access to its source code as black-box. Instead of asking a domain expert to label the data, we added some hooks in the code that output the current state. It made the data collection phase much easier, yet one might argue that in practice labeling might get difficult. Albeit on the other hand, having these hooks in the code provided us with too granular state change points which decreases the model's accuracy.
+
+In future endeavours, The possibility and the means of using transfer learning can be studied. Using transfer learning can help reduce the labour intensive task of data labeling. Furthermore, It can enable us to use a pretrained model on similar systems.
+
+
+\section{Conclusion}
