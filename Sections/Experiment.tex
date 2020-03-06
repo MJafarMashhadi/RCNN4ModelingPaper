@@ -65,10 +65,6 @@ FN ={}&{}\Big|\big\{ (t, s_t) \in CP_k \;\big|\; \nexists\: (\hat{t}, \hat{s}_t)
 \subsubsection{Model Fitting Time}
 
 
-% \subsubsection{Accuracy}
-% \subsubsection{The time tolerance measure in \cite{Lee2018TimeSeriesSegmentation}}
-
-
 \subsection{Baseline Algorithms}
 \subsubsection{CPD algorithms}
 A hypothesis is that existing multivariate time series CPD algorithms can be used to solve the problem we are trying to tackle if CPD algorithms would be able to reliably mark the time that state changes happen.
@@ -90,12 +86,7 @@ A sliding window of size 10 was rolled over the 10 time series and then flattene
 
 
 The data was randomly split into two chunks of 95\% and 5\% for training and evaluation.
-Adam optimizer \cite{kingma2014adam} was used to optimizer a categorical cross entropy loss function in the training process.
-
-% Training: optimizer, epochs, loss function
-% . Comparing the architecture with LSTM/GRU \\
-% . Smoothing the input using a rolling window average? good or bad idea?\\
-% . Loss function: Binary cross-entropy based on KL-divergence that measures how different two distributions are\\
+Adam optimizer \cite{kingma2014adam} was used to optimizer a dice overlap loss function \cite{milletari2016v} in the training process.
 
 
 \subsection{Experiment Environment}
