@@ -21,7 +21,7 @@ Multi-variate time series are defined as a set of $n$ univariate time series ($V
 \end{equation}
 
 
-Ideally in each run the system will go through some internal state changes which are labeled manually by a domain expert. In section \ref{mp_data_collection} we explain what we did to keep the variety of the collected data (and hence its quality) high.
+Ideally in each run the system will go through some internal state changes which are labeled manually by a domain expert. In section~\ref{mp_data_collection} we explain what we did to keep the variety of the collected data (and hence its quality) high.
 
 The input/output values data are half of the data. We also need a set of true labels to be predicted to complete the data set.
 A typical way to obtain the labels is to get some help from domain experts. For each run the y provide a set of tuples in form of $(t_s, s)$ where $t_s$ denotes the timestamp where the system entered state $s$. We show the set of all possible states with $S$ ($s \in S$) and define $N_s$ as the cardinality of this set. 
@@ -52,7 +52,7 @@ Combining all, each training instance will be the tuple $(T_k, CP_k)$.
 Since TensorFlow requires all the data to have the same shape, the shorter $T_k$s should be zero-padded to length ,$L = max\{l_k\}$.
 Therefore in the end the input to the model will be $T_k$s that are rearranged to form a tensor of shape $n \times L$ along with a padding mask. Padding mask is used to prevent the added zero values having a negative effect on the model's performance. It tells the model where the tail starts so the model can ignore all the zeros from there on.
 
-The true labels ($O$, also called labels in ML literature) is a vector of length $L$ (after padding) where each element $\o_t$ holds the one-hot encoded state at time $t$. It can be determined easily by consulting set $CP_k$ (definition \eqref{eq:change_point}) as defined in \eqref{eq:output}.
+The true labels ($O$, also called labels in ML literature) is a vector of length $L$ (after padding) where each element $o_t$ holds the one-hot encoded state at time $t$. It can be determined easily by consulting set $CP_k$ (definition \eqref{eq:change_point}) as defined in \eqref{eq:output}.
 \begin{equation} \label{eq:output}
 \begin{split}
 O = \langle  \forall t \in \mathbb{N}_L : s_i | 

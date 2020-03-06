@@ -104,7 +104,7 @@ The code was written using TensorFlow 2's keras API.
 
 
 
-\subsection{System Under Study}
+\subsection{System Under Study} \label{mp_data_collection}
 
 Our case study was a real-time controller system, an AutoPilot developed by Winnipeg based Micro Pilot Inc. Micro Pilot is the world-leader in professional UAV AutoPilot which develops both the hardware and the software for 1000+ clients (including NASA, Raytheon, and Northrop Grumman) in 85+ countries during the past 20+ years.
 
@@ -120,11 +120,11 @@ Of course pinpointing the exact moment when the changes happen is difficult; It 
 For example when the autopilot transitions from `hold altitude' state to `descend to X ft' state the goal of the system changes to `descend with a constant sink rate of Y ft/min' until it reaches the desired altitude. It results in change in the set of invariants that the AutoPilot is trying to hold which in turn is reflected in how changes in certain inputs (e.g. altimeter reading) cause the autopilot take actions by making adjustments in certain outputs (e.g. throttle and elevator output). 
 
 
-\subsection{Data Set} \label{mp_data_collection}
+% \subsection{Data Set} \label{mp_data_collection}
 We ran 948 available tests in a software simulator\footnote{It is developed by MicroPilot Inc and provides a realistic simulation of the aerodynamic  forces on the aircraft, the physical environment irregularities (e.g. unexpected wind gusts), and noises in sensor readings} and collected the flight data. The tests were system tests. They include a flight scenario for various supported aircraft. The scenario goes through different phases in flight such as taking off, cruising, following a path, and landing.
-We sampled inputs and outputs values with a 200ms resolution.
-It is the same time interval that the AutoPilot reads the sensor values and performs the calculations required to update its output values.
-The list of AutoPilot inputs and outputs are shown in table \ref{tab:in_outs}.
+We sampled inputs and outputs values at 5 Hz rate.
+It is chosen because the AutoPilot reads the sensor values and performs the calculations required to update its output values at the same rate.
+The list of AutoPilot inputs and outputs are shown in table~\ref{tab:in_outs}.
 
 
 \begin{table}[ht]
@@ -152,7 +152,7 @@ Flaps     & Surfaces of back of the wings that provide extra lift at low speeds,
 \footnotetext{Above Ground Level}
 
 
-Out of the 948 flight logs, we omitted 60 of them which were either too short or too long (shorter than 200 samples or longer than 20k samples). Figure \ref{fig:test_lengths} shows the distribution of the remaining log lengths.
+Out of the 948 flight logs, we omitted 60 of them which were either too short or too long (shorter than 200 samples or longer than 20k samples). Figure~\ref{fig:test_lengths} shows the distribution of the remaining log lengths.
 
 \begin{figure}[h]
     \centering
@@ -161,7 +161,7 @@ Out of the 948 flight logs, we omitted 60 of them which were either too short or
     \label{fig:test_lengths}
 \end{figure}
 
-As mentioned in \ref{data_set_properties} each datum is a multivariate time series with $n=10$ variables (listed in table \ref{tab:in_outs}). 
+As mentioned in \ref{data_set_properties} each datum is a multivariate time series with $n=10$ variables (listed in table~\ref{tab:in_outs}). 
 During the data pre-processing, after the time series data is converted into tensors, all of the shorter $T_i$s were post-padded to the length of the longest one: $L=18001$ time steps. 
 
 \section{Results}
@@ -175,6 +175,6 @@ Maybe the traditional statistical CPD algorithms could outperform our method if 
 \begin{figure*}[ht]
     \centering
     \includegraphics[width=\linewidth]{Sections/test_0.png}
-    \caption{Evaluation of the model on unseen data. Each graph shows the state changes in one run of the system. The colors show the states. Top half of each plot depicts model's prediction of the system state ($\hat{O}$) and the bottom half shows the true labels($O$). Since the output is one-hot encoded, the item with the most probability is used as the predicted label at each point in time. X-axis is the time axis. Only the first 300 samples (1 minute of simulation) are shown to improve legibility.}
+    \caption{Evaluation of the model on unseen data. Each graph shows the state changes in one run of the system. The colors show the states. Top half of each plot depicts model's prediction of the system state ($\hat{O}$) and the bottom half shows the true labels($O$). Since the output is one-hot encoded, the item with the most probability is used as the predicted label at each point in time. X-axis is the time axis. Only the first 600 samples (2 minute of simulation) are shown to improve legibility.}
     \label{fig:test_0}
 \end{figure*}
