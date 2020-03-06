@@ -1,6 +1,8 @@
 \section{Background}
 \subsection{State Model Inference}
-Roughly speaking, EFSM\footnote{Extended Finite State Machines, are special kind of state machines that have conditional expressions called `transition guards' on their transitions. A state transition can only happen if the transition guard evaluates true.} inference algorithms generally take a list of `events` (along with some variable values) as the input \cite{walkinshaw2016inferring}. They use the events to find the state transitions and the values for detecting invariants and generating guard  conditions for the transitions. 
+Roughly speaking, dynamic EFSM\footnote{Extended Finite State Machines, are special kind of state machines that have conditional expressions called `transition guards' on their transitions. A state transition can only happen if the transition guard evaluates true.} inference algorithms generally take a trace of `events' (along with some variable values) as the input \cite{walkinshaw2016inferring} to infer a generalized finite state machine. They use the events to find the state transitions and the values for detecting invariants and generating guard  conditions for the transitions. 
+k Tails, Gk Tail, EDSM, and MINT are examples of these algorithms, each improving upon the previous one \cite{biermann1972synthesis, lorenzoli2008automatic, lang1998results, walkinshaw2016inferring}.
+
 
 \subsection{Change Point Detection}
 A fundamental tool in time series data analysis is Change Point Detection (CPD). It refers to the task of finding when the model generating the values has changed. 
@@ -15,19 +17,10 @@ Ives and Dakos utilized locally linear models and used statistical significance 
 
 
 
-\subsection{Deep Learning}
-Deep neural networks have shown great 
+\subsection{Deep Neural Networks on Time Series data}
+Deep neural networks have shown great empirical performance in recent years in a multitude of tasks. 
+Analysing sequences of data is not an exception. Inspired by nature, convolutional neural network(CNN)s can learn to find features in a multi dimensional input while being less sensitive to the exact location of the feature in the input. \cite{lecun2015deep} Recurrent neural network(RNN)s introduce an element of memory into the game rendering them quite powerful in machine translation and time series prediction tasks \cite{cho2014learning, zhang2000predicting}.
 
-CNNs
+Murad et al \cite{murad2017deep} have shown deep RNNs outperform CNNs and deep belief networks in human activity recognition (HAR) task. HAR is quite close to the subject of our paper in the sense that they both take in a multivariate time series data (from sensor readings) and output the intention (internal state) of the system that generated those readings. 
 
-RNNs
-
-Hybrid networks
-
-. DeepSense \cite{deepsense}: Detects the state of mobile user based on sensor input such as accelerometer  \\
-. Wearable moltimodal phase \cite{Ordonez2016}\\
-. Survey \cite{wang2019deep} 4.6 for CNN-RNN Hybrid related work\\
-.. CNN + Dense RNN $>>>$ CNN + Dense \cite{morales2016deep}\\
-.. Similar conclusion in \cite{singh2017transforming}\\
-.. DRNN outperforms CNNs and DBN (Deep believe networks) \cite{murad2017deep} Also Section 3 presents a background overview of RNNs and LSTM.\\
-.. \cite{zheng2016exploiting}\\
+Hybrid models are the combination of some deep architectures \cite{wang2019deep}, say a CNN + RNN or a CNN + a fully connected net. Morales et al have shown the former preforms better than the latter in HAR\cite{morales2016deep}. Yao et el \cite{deepsense} introduced a CNN + RNN architecture that outperforms the state of the art both in  classification and in regression tasks. Similar results have been shown in other works such as \cite{Ordonez2016, singh2017transforming, zheng2016exploiting} as well.

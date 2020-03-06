@@ -7,10 +7,11 @@ We aimed to infer high level states of a black-box system using a machine learni
 \subsection{Data Format} \label{data_collection}
 
 % To train the model some training data is required. 
-To collect data we run the system $N$ times and record the input/output values. The recorded data from each run forms a discrete multi-variate time series data that we show by $T_k$. The set of all $T_k$s is the whole data set $DS$.
-\begin{equation}
-    DS = \{T_k\}_{k=1}^N
-\end{equation}
+To collect data we run the system $N$ times and record the input/output values. The recorded data from each run forms a discrete multi-variate time series data that we show by $T_k$. 
+% The set of all $T_k$s is the whole data set $DS$.
+% \begin{equation}
+%     DS = \{T_k\}_{k=1}^N
+% \end{equation}
 Multi-variate time series are defined as a set of $n$ univariate time series ($V_i$) of the same length $l_k$. In our case, each $V_i$ is the list of recorded values for one of the inputs/outputs.
 \begin{equation}
     T_k = \{{V_1}_k, {V_2}_k, \ldots, {V_n}_k\}
