@@ -80,7 +80,7 @@ We used 4 convolutional layers with 64 filters and kernel sizes of 3, 5, 10, 15 
 %with max pooling layers of size 2 in between. 
 Their output is fed into two recurrent layers with 128 and 96 cells each which are then fed into two fully connected layers of size 96 and $N_s$ units. This last layer has a `softmax' activation function.
 %This layer's output is fed to an upsampling layer to match the length of the output to length of the labels vector.  
-This architecture forms a CNN-RNN hybrid neural network. \cite{Wang2017}
+This architecture forms a CNN-RNN hybrid neural network. \cite{wang2017time}
 
 As mentioned in \ref{changes_in_inputs} since what matters more are the changes rather than the absolute values, applying a derivation operation (or more generally a gradient) is necessary at some point in the processing. 
 Farid and Simoncelli enumerated some discrete derivation kernels \cite{Farid2004}, but to have a more generalized notion of discrete derivatives we used convolutional layers in a neural network model. 
