@@ -1,6 +1,6 @@
 \section{Background}
 \subsection{State Model Inference}
-Roughly speaking, dynamic EFSM\footnote{Extended Finite State Machines, are special kind of state machines that have conditional expressions called `transition guards' on their transitions. A state transition can only happen if the transition guard evaluates true.} inference algorithms generally take a trace of `events' (along with some variable values) as the input \cite{walkinshaw2016inferring} to infer a generalized finite state machine. They use the events to find the state transitions and the values for detecting invariants and generating guard  conditions for the transitions. 
+Roughly speaking, dynamic EFSM\footnote{Extended Finite State Machines, are special kind of state machines that have conditional expressions called `transition guards' on their transitions. A state transition can only happen if the transition guard evaluates true.} inference algorithms generally take a trace of `events' (along with perhaps some variable values) as their input \cite{walkinshaw2016inferring} to infer a generalized finite state machine. They use the events to find the state transitions and the values for detecting invariants and generating guard  conditions for the transitions. 
 k Tails, Gk Tail, EDSM, and MINT are examples of these algorithms, each improving upon the previous one \cite{biermann1972synthesis, lorenzoli2008automatic, lang1998results, walkinshaw2016inferring}.
 
 
