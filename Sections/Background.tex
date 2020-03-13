@@ -25,3 +25,6 @@ Murad et al. \cite{murad2017deep} have shown deep RNNs outperform CNNs and deep 
 
 
 Hybrid models are the combination of some deep architectures \cite{wang2019deep}, say a CNN + RNN or a CNN + a fully connected net. Morales et al. have shown the former preforms better than the latter in HAR\cite{morales2016deep}. Yao et al. \cite{deepsense} introduced a CNN + RNN architecture that outperforms the state of the art both in  classification and in regression tasks. Similar results have been shown in other works such as \cite{Ordonez2016, singh2017transforming, zheng2016exploiting} as well.
+
+
+Time series classification solutions often output one label classifying the whole data. What is more related to our problem can be named time series segmentation if we were to use similar terminology to computer vision. However this name is already used in the time series literature for a different task, so the names can get a bit confusing. U-net is one of the promising auto-encoder architectures for image segmentation \cite{ronneberger2015u}; Perslev et al. developed a similar idea for time series and called it U-time. \cite{perslev2019u}
