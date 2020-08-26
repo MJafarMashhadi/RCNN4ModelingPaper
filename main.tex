@@ -1,7 +1,7 @@
-\documentclass[sigconf, review, anonymous]{acmart}
+% \documentclass[sigconf, review, anonymous]{acmart}
 % \documentclass[sigconf,authordraft]{acmart}
 % \documentclass[sigconf, anonymous]{acmart}
-% \documentclass[sigconf]{acmart}
+\documentclass[sigconf]{acmart}
 
 
 % \usepackage{cite}
@@ -15,6 +15,8 @@
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{tcolorbox}
+
+\usepackage{soul} % Only for draft, provideds \hl
 
 \newtcolorbox{rqanswer}{%
     colback=gray!30,
@@ -36,18 +38,18 @@
 %% values in them; it is your responsibility as an author to replace
 %% the commands and values with those provided to you when you
 %% complete the rights form.
-\setcopyright{acmcopyright}
+\setcopyright{acmlicensed}
 \copyrightyear{2020}
-\acmConference[ASE 2020]{35th IEEE/ACM International Conference on Automated Software Engineering (ASE 2020)}{21 - 25 September 2020} {Melbourne, Australia}
+\acmConference[ASE '20]{35th IEEE/ACM International Conference on Automated Software Engineering}{September21--25, 2020}{Virtual Event, Australia}
 \acmYear{2020}
-% \acmDOI{10.1145/1122445.1122456}
+\acmDOI{10.1145/3324884.3416559}
+
 
 %% These commands are for a PROCEEDINGS abstract or paper.
 
-\acmBooktitle{ASE 2020: IEEE/ACM International Conference on Automated Software Engineering
-  September 21--25, 2018, Melbourne, Australia}
-% \acmPrice{15.00}
-% \acmISBN{978-1-4503-XXXX-X/18/06}
+\acmBooktitle{35th IEEE/ACM International Conference on Automated Software Engineering (ASE '20), September 21--25, 2020, Virtual Event, Australia}
+\acmPrice{15.00}
+\acmISBN{978-1-4503-6768-4/20/09}
 
 
 
